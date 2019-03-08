@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Resources\VisitsResource;
+use App\Visit;
+use Illuminate\Http\Request;
+
+class VisitController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return VisitsResource
+     */
+    public function index()
+    {
+        return new VisitsResource(Visit::all());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // save
+        Visit::updateOrCreate(['url' => $request->url])->increment('count');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Visit  $visit
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Visit $visit)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Visit  $visit
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Visit $visit)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Visit  $visit
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Visit $visit)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Visit  $visit
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Visit $visit)
+    {
+        //
+    }
+}

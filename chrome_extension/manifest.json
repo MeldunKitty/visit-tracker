@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Visit Tracker",
+  "description": "Отслеживание вашейй статистики посещений сайтов",
+  "version": "1.0.0",
+  "icons": {"128": "icon.png"},
+  "content_security_policy": "script-src 'self' https://localhost https://maxcdn.bootstrapcdn.com https://maxcdn.bootstrapcdn.com https://stackpath.bootstrapcdn.com https://code.jquery.com https://cdnjs.cloudflare.com; object-src 'self'",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+      "activeTab",
+      "tabs",
+      "storage",
+      "https://localhost/"
+  ]
+}
