@@ -12,30 +12,24 @@ then
 		printf "\n*******************************************\n"	
 		printf "\nПакеты проекта установлены! \n"
 		
-		printf "\nШаг 2. Настройка прав в storage...\n"
-		
-		if chmod -R 775 storage
-		then
-			printf "\n*******************************************\n"	
-			printf "\nПрава настроены! \n"
-			
+
 			printf "\nШаг 3. Запуск docker контейнеров...\n"
 			printf "\n*******************************************\n"
 			
 			if cd .. && docker-compose up --build -d
 			then
+
+			    docker-compose exec php /bin/bash
+			    chmod -R 777 storage
+                exit
+
 				printf "\n*******************************************\n"	
 				printf "\nКонтейнеры собраны и запущены! \n"
 			
 			else
-				printf "\n!! ОШИБКА !! Проверьте правильность установки docker и docker-compose, затем повторите попытку\n"
+				printf "\n!! ОШИБКА !! Ошибка сборки контейнеров, проверьте правильность установки docker и docker-compose, затем повторите попытку\n"
 				return
 			fi
-
-		else
-			printf "\n!! ОШИБКА !! Ошибка настройки прав в storage\n"
-			return
-		fi
 	else
 		printf "\n!! ОШИБКА !! Проверьте правильность установки composer или наличие подключения к интернету\n"
 		return
