@@ -19,7 +19,7 @@ then
 			if cd .. && docker-compose up --build -d
 			then
 
-			    docker-compose exec php /bin/bash
+			    docker-compose exec php chmod -R 777 storage
 			    chmod -R 777 storage
                 exit
 
