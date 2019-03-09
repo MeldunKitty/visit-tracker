@@ -20,8 +20,6 @@ then
 			then
 
 			    docker-compose exec php chmod -R 777 storage
-			    chmod -R 777 storage
-                exit
 
 				printf "\n*******************************************\n"	
 				printf "\nКонтейнеры собраны и запущены! \n"
