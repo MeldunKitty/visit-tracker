@@ -22,6 +22,7 @@ services:
             - mysqldb:mysqldb
     php:
         image: nanoninja/php-fpm:${PHP_VERSION}
+        command: /bin/sh chmod -R 777 storage"
         restart: always
         volumes:
             - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
