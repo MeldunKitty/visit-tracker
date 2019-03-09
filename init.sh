@@ -19,7 +19,7 @@ then
 			if cd .. && docker-compose up --build -d
 			then
 
-			    docker-compose exec php chmod -R 777 storage && php artisan migrate:fresh
+			    docker-compose exec php sh -c 'chmod -R 777 storage && php artisan migrate:fresh'
 
 				printf "\n*******************************************\n"	
 				printf "\nКонтейнеры собраны и запущены! \n"
